@@ -29,13 +29,14 @@ function Counter() {
 
   const onZero = (count - amt) < 0;
   const noAdd = validationMessage.length > 0;
-  const onMaxNum = (count + amt) > 9999999;
+  const onMaxNum = (count + amt) > 999999;
 
   return (
     <div className="counter-holder"> 
-      <button onClick={() => handleCount(-amt)} disabled={onZero || noAdd}>Count down</button>
-      <div className="count-display">{count}</div> 
       <button onClick={() => handleCount(amt)} disabled={onMaxNum || noAdd}>Count up</button>
+      <div className="count-display">{count}</div> 
+      <button onClick={() => handleCount(-amt)} disabled={onZero || noAdd}>Count down</button>
+      
       <div className="amt-holder">
         <div className="amt-instructions">Increment amount:</div>
         <input value={amt} onChange={handleChangeAmt} />
